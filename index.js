@@ -11,6 +11,8 @@ app.set('layout extractStyles',true);
 
 app.use(expressLayout);
 
+app.use(express.static('./assets'));
+
 app.use(express.urlencoded({extended:false}));
 
 app.use('/',require('./routes/index'))
