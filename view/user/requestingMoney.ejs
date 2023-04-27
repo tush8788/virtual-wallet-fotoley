@@ -1,32 +1,73 @@
 <div class="container">
-    <div class="row">
-        <div class="col-6">
-            <form class="row g-3" method="post" action="/money/request-money">
-                <div class="col-md-6">
-                  <label for="inputEmail4" class="form-label">Request Sender</label>
-                  <input type="email"  value="<%=locals.user.email%>" class="form-control" name="sender" id="inputEmail4" readonly>
-                </div>
-                <div class="col-md-6">
-                    <label for="inputState" class="form-label">Money Request</label>
-                    <select id="inputState" class="form-select" name="requester">
-                        <% for (let user of users){%>
-                          <option value="<%=user._id%>"><%=user.email%></option>
-                        <% } %>
-                    </select>
-                </div>
-                <div class="col-6">
-                  <label for="inputAddress" class="form-label">Message</label>
-                  <input type="text" class="form-control" id="inputAddress" name="message" maxlength="20" placeholder="" required>
-                </div>
-                <div class="col-6">
-                  <label for="inputAddress2" class="form-label">Amount</label>
-                  <input type="number" name="amount" class="form-control" id="inputAddress2" min="1"  placeholder=" minimun 10" required>
-                </div>
-                <div class="col-12">
-                  <button type="submit" class="btn btn-primary">Send Request</button>
-                </div>
-              </form>
+  <div class="row">
+    <div class="col-4">
+      <form class="row g-3" method="post" action="/money/request-money">
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">Request Sender</label>
+          <input type="email" value="<%=locals.user.email%>" class="form-control" name="sender" id="inputEmail4"
+            readonly>
         </div>
-        
+        <div class="col-md-6">
+          <label for="inputState" class="form-label">Money Request</label>
+          <select id="inputState" class="form-select" name="requester">
+            <% for (let user of users){%>
+              <option value="<%=user._id%>">
+                <%=user.email%>
+              </option>
+            <% } %>
+          </select>
+        </div>
+        <div class="col-6">
+          <label for="inputAddress" class="form-label">Message</label>
+          <input type="text" class="form-control" id="inputAddress" name="message" maxlength="20" placeholder=""
+            required>
+        </div>
+        <div class="col-6">
+          <label for="inputAddress2" class="form-label">Amount</label>
+          <input type="number" name="amount" class="form-control" id="inputAddress2" min="1" placeholder=" minimun 10"
+            required>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Send Request</button>
+        </div>
+      </form>
     </div>
+
+    <div class="col-8">
+      <div>
+        <h3>Money Req</h3>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Sender</th>
+                <th scope="col">request</th>
+                <th scope="col">message</th>
+                <th scope="col">status</th>
+                <th scope="col">Amount</th>
+                <th scope="col">success</th>
+                <th scope="col">reject</th>
+              </tr>
+            </thead>
+            <tbody>
+              <%=allMoneyReq%>
+                <% for (let record of allMoneyReq.moneyRequest){ %>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td><%=record.sender.email%></td>
+                      <td><%=record.requester.email%></td>
+                      <td><%=record.message%></td>
+                      <td><%=record.status%></td>
+                      <td><%=record.amount%></td>
+                      <% if(record.requester._id==locals.user.id && record.status=="pending"){%>
+                        <td><a href="/money/update-money-req?status=success&receiver=<%=record.sender._id%>&amount=<%=record.amount%>" class="btn btn-primary">success</a></td>
+                        <td><a href="/money/update-money-req?status=reject" class="btn btn-primary">reject</a></td>
+                      <%}%>
+                    </tr>
+                <% } %>
+            </tbody>
+          </table>
+    </div>
+    </div>
+  </div>
 </div>
