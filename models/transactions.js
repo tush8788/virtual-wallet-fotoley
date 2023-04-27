@@ -11,6 +11,15 @@ const transationSchema = new mongoose.Schema({
     },
     charges:{
         type:Number,
+        default:0
+    },
+    chargesAmount:{
+        type:Number,
+        default:0
+    },
+    amount:{
+        type:Number,
+        default:0,
         required:true
     },
     message:{

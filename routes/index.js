@@ -15,4 +15,7 @@ router.use('/admin',require('./admin'));
 //user
 router.use('/user',require('./user'));
 
+//money
+router.use('/money',require('./money'));
+
 module.exports = router;

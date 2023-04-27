@@ -32,11 +32,11 @@ module.exports.create=async function(req,res){
             user = await UserDB.create(req.body);
 
             //adding free credited to his wallet 
-            if(user.isPrimiumUser){
+            if(user.isPrimiumUser && user.isAdmin==false){
                 // console.log("inside isprimium")
                await user.updateOne({balance:2500})
             }
-            else{
+            else if(user.isAdmin==false){
                 // console.log("inside non primuam")
                await user.updateOne({balance:1000})
             }

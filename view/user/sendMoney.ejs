@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <form class="row g-3" method="post" action="/money/send-money">
+                <div class="col-md-6">
+                  <label for="inputEmail4" class="form-label">Sender</label>
+                  <input type="email"  value="<%=locals.user.email%>" class="form-control" name="sender" id="inputEmail4" readonly>
+                </div>
+                <div class="col-md-6">
+                    <label for="inputState" class="form-label">Receiver</label>
+                    <select id="inputState" class="form-select" name="receiver">
+                        <% for (let user of users){%>
+                          <option value="<%=user._id%>"><%=user.email%></option>
+                        <% } %>
+                    </select>
+                </div>
+                <div class="col-6">
+                  <label for="inputAddress" class="form-label">Message</label>
+                  <input type="text" class="form-control" id="inputAddress" name="message" maxlength="20" placeholder="" required>
+                </div>
+                <div class="col-6">
+                  <label for="inputAddress2" class="form-label">Amount</label>
+                  <input type="number" name="amount" class="form-control" id="inputAddress2" min="1" max="<%=locals.user.balance-50%>" placeholder=" minimun 10 and maximum <%=locals.user.balance-50%>" required>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary">Send Money</button>
+                </div>
+              </form>
+        </div>
+    </div>
+</div>
