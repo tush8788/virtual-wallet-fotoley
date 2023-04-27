@@ -1,5 +1,6 @@
 const UserDB = require('../models/user');
 const TransactionDB = require('../models/transactions');
+const RequestMoneyDB = require('../models/RequestMoney');
 
 //send money page
 module.exports.sendMoneyPage= async function(req,res){
@@ -99,6 +100,38 @@ module.exports.sendMoney=async function(req,res){
                 $push:{transactions:{$each:[senderChargesTransation,reciverChargesTransation]}}
             });
 
+        return res.redirect('back');
+    }
+    catch(err){
+        console.log(err);
+    }
+}
+
+//Requesting Money Page
+module.exports.requestingMoneyPage=async function(req,res){
+    try{
+        let users = await UserDB.find({email:{$ne:req.user.email},isAdmin:{$ne:true}}).select('email'); 
+        return res.render('./user/requestingMoney',{
+            title:"Requesting Money",
+            users
+        })
+    }
+    catch(err){
+
+    }
+}
+
+//Requesting Money
+module.exports.requestingMoney=async function(req,res){
+    try{
+        // console.log(req.body);
+        req.body.sender=req.user.id;
+        let moneyReq = await RequestMoneyDB.create(req.body);
+        // console.log(moneyReq);
+        await UserDB.findByIdAndUpdate(req.body.sender,{$push:{moneyRequest:moneyReq}})
+        await UserDB.findByIdAndUpdate(req.body.requester,{$push:{moneyRequest:moneyReq}})
+        
+        // console.log(req.body);
         return res.redirect('back');
     }
     catch(err){

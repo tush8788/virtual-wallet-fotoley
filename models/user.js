@@ -27,6 +27,12 @@ const userSchema = new mongoose.Schema({
             type:mongoose.Schema.Types.ObjectId,
             ref:"Transaction"
         }
+    ],
+    moneyRequest:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"RequestMoney"
+        }
     ]
 });
 
