@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand navbar-expand-lg navbar-dark" style="background-color: #000000;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/"><b>HealthCare</b></a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <% if(locals.user){%>
+              <li class="nav-item">
+                <%if(locals.user.isAdmin==true){%>
+                  <a class="nav-link active" aria-current="page" href="/admin/dashboard">Home</a>
+                <%}else{%>
+                  <a class="nav-link active" aria-current="page" href="/user/dashboard">Home</a>  
+                <%}%>
+              </li>
+              <li class="nav-item">
+                
+              </li>
+              <li class="nav-item dropdown">
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" style="color:rgb(199, 199, 199);" href="#" tabindex="-1" aria-disabled="true"><%=locals.user.email%></a>
+              </li>
+            <%}%>
+          </ul>
+        <div class="d-flex">
+            <%if(locals.user){%>
+                <a href="/signout" class="btn btn-outline-primary">SignOut</a> &nbsp;
+            <%}else{%>
+                <a href="/admin/signin" class="btn btn-outline-primary">Admin SignIn</a> &nbsp;
+                <a href="/user/signin" class="btn btn-outline-success">User SignIn</a>&nbsp;
+            <%}%>
+        </div>
+      </div>
+    </div>
+  </nav>
