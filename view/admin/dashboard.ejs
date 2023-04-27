@@ -20,45 +20,54 @@
             Primium user
             <table class="table">
                 <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">email</th>
-                    <th scope="col">balance</th>
-                  </tr>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">email</th>
+                        <th scope="col">balance</th>
+                    </tr>
                 </thead>
                 <tbody>
                     <% for (let user of users){ %>
                         <%if(user.isPrimiumUser){%>
                             <tr>
                                 <th scope="row">1</th>
-                                <td><%=user.email%></td>
-                                <td><%=user.balance%></td>
+                                <td>
+                                    <%=user.email%>
+                                </td>
+                                <td>
+                                    <%=user.balance%>
+                                </td>
+                            </tr>
                         <%}%>
                     <% } %>
                 </tbody>
-              </table>
+            </table>
         </div>
         <div class="col-6">
             Non-Primium user
             <table class="table">
                 <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">email</th>
-                    <th scope="col">balance</th>
-                  </tr>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">email</th>
+                        <th scope="col">balance</th>
+                    </tr>
                 </thead>
                 <tbody>
                     <% for (let user of users){ %>
                         <%if(user.isPrimiumUser==false){%>
                             <tr>
                                 <th scope="row">1</th>
-                                <td><%=user.email%></td>
-                                <td><%=user.balance%></td>
-                        <%}%>
-                    <% } %>
+                                <td>
+                                    <%=user.email%>
+                                </td>
+                                <td>
+                                    <%=user.balance%>
+                                </td>
+                                <%}%>
+                                    <% } %>
                 </tbody>
-              </table>
+            </table>
         </div>
     </div>
 

@@ -15,7 +15,8 @@ module.exports.sendMoneyPage = async function (req, res) {
 
     }
     catch (err) {
-
+        console.log(err);
+        return;
     }
 }
 
@@ -111,6 +112,7 @@ module.exports.sendMoney = async function (req, res) {
     }
     catch (err) {
         console.log(err);
+        return;
     }
 }
 
@@ -132,7 +134,8 @@ module.exports.requestingMoneyPage = async function (req, res) {
         })
     }
     catch (err) {
-
+        console.log(err);
+        return;
     }
 }
 
@@ -151,6 +154,7 @@ module.exports.requestingMoney = async function (req, res) {
     }
     catch (err) {
         console.log(err);
+        return;
     }
 }
 
@@ -158,7 +162,7 @@ module.exports.requestingMoney = async function (req, res) {
 module.exports.reqMoneyStatus = async function (req, res) {
     try {
         // console.log(req.query);
-        await RequestMoneyDB.findOneAndUpdate({ _id:req.query.id,requester: req.user.id }, { status: req.query.status });
+        await RequestMoneyDB.findOneAndUpdate({ _id: req.query.id, requester: req.user.id }, { status: req.query.status });
         if (req.query.status == "success") {
 
             req.body = {
@@ -242,6 +246,7 @@ module.exports.reqMoneyStatus = async function (req, res) {
         return res.redirect('back');
     }
     catch (err) {
-        console.log(err)
+        console.log(err);
+        return;
     }
 }

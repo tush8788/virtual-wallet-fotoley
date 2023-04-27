@@ -5,30 +5,35 @@
         <div class="col-12">
             <div class="form-container" style="height: auto; padding-bottom: 20px;">
                 <h3 class="heading">Sign Up</h3><br>
-                <form  action="<%=url%>" method="post">
+                <form action="<%=url%>" method="post">
                     <input type="email" class="form-control" name="email" placeholder="Email" required><br>
                     <input type="password" class="form-control" name="password" placeholder="password" required><br>
-                    <input type="password" class="form-control" name="confirmPassword" placeholder="Confrom password" required><br><br>
+                    <input type="password" class="form-control" name="confirmPassword" placeholder="Confrom password"
+                        required><br><br>
                     <% if (!isAdmin){%>
                         <div class="container">
                             <div class="row">
                                 <div class=" col-6 form-check">
-                                    <input class="form-check-input" value="true" type="radio" name="isPrimiumUser" id="flexRadioDefault1">
-                                    <label class="form-check-label"  for="flexRadioDefault1">
+                                    <input class="form-check-input" value="true" type="radio" name="isPrimiumUser"
+                                        id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
                                         Premium User
                                     </label>
-                                  </div>
-                                  <div class="col-6 form-check">
-                                    <input class="form-check-input" value="false" type="radio" name="isPrimiumUser" id="flexRadioDefault2" checked>
+                                </div>
+                                <div class="col-6 form-check">
+                                    <input class="form-check-input" value="false" type="radio" name="isPrimiumUser"
+                                        id="flexRadioDefault2" checked>
                                     <label class="form-check-label" for="flexRadioDefault2">
-                                      Non-Premium User
+                                        Non-Premium User
                                     </label>
-                                  </div>
-                            </div>   
+                                </div>
+                            </div>
                         </div>
                         <%}%>
-                    <input type="hidden" class="form-control" name="isAdmin" value="<%=isAdmin%>" required><br><br>
-                    <input type="submit" id="btnSubmit" class=" btn btn-dark btn-outline-warning" value="signup">
+                            <input type="hidden" class="form-control" name="isAdmin" value="<%=isAdmin%>"
+                                required><br><br>
+                            <input type="submit" id="btnSubmit" class=" btn btn-dark btn-outline-warning"
+                                value="signup">
                 </form>
             </div>
         </div>

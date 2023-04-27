@@ -10,15 +10,17 @@
                 </center><br>
                 <div class="d-grid gap-2">
                     <% if(locals.user){%>
-                    <%}else{%>
-                        <a href="/admin/signin" style="color:white" class="btn rounded-pill btn-dark btn-outline-warning">Signin</a>
-                        <%if(true){%>
-                            <a href="/admin/signup" style="color:white" class="btn rounded-pill btn-dark btn-outline-warning">SignUp</a>
                         <%}else{%>
-                         <p>email:admin@gmail.com</p>
-                         <p>password:admin</p>
-                        <%}%>       
-                    <%}%>
+                            <a href="/admin/signin" style="color:white"
+                                class="btn rounded-pill btn-dark btn-outline-warning">Signin</a>
+                            <%if(false){%>
+                                <a href="/admin/signup" style="color:white"
+                                    class="btn rounded-pill btn-dark btn-outline-warning">SignUp</a>
+                            <%}else{%>
+                                <p>email:admin@gmail.com</p>
+                                <p>password:admin</p>
+                                <%}%>
+                            <%}%>
                 </div>
             </div>
         </div>
@@ -32,10 +34,12 @@
                     </center><br>
                     <div class="d-grid gap-2">
                         <% if(locals.user){%>
-                        <%}else{%>        
-                            <a href="/user/signin" style="color:white" class="btn rounded-pill btn-dark btn-outline-warning">Signin</a>
-                            <a href="/user/signup" style="color:white" class="btn rounded-pill btn-dark btn-outline-warning">SignUp</a>
-                        <%}%>
+                            <%}else{%>
+                                <a href="/user/signin" style="color:white"
+                                    class="btn rounded-pill btn-dark btn-outline-warning">Signin</a>
+                                <a href="/user/signup" style="color:white"
+                                    class="btn rounded-pill btn-dark btn-outline-warning">SignUp</a>
+                                <%}%>
                     </div>
                 </div>
             </div>
