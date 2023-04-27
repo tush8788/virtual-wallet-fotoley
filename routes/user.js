@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const authController = require('../controller/auth_controller');
+const userController = require('../controller/user_controller');
 
 //signin page
 router.get('/signin',(req,res,next)=>{
@@ -22,5 +23,8 @@ router.post('/create',authController.create);
 
 //create session
 router.post('/create-session',passport.authenticate('local',{failureRedirect:"/user/signin"}),authController.createSession)
+
+//user dashboard
+router.get('/dashboard',passport.checkAuthentication,passport.isUserOrNot,userController.dashboard);
 
 module.exports = router;

@@ -30,16 +30,33 @@ module.exports.create=async function(req,res){
 
         if(!user){
             user = await UserDB.create(req.body);
+
+            //adding free credited to his wallet 
+            if(user.isPrimiumUser){
+                // console.log("inside isprimium")
+               await user.updateOne({balance:2500})
+            }
+            else{
+                // console.log("inside non primuam")
+               await user.updateOne({balance:1000})
+            }
+
             if(user.isAdmin){
-                console.log("Admin Create Successfully");
+                // console.log("Admin Create Successfully");
                 return res.redirect('/admin/signin')
             }
             else{
-                console.log("User Create Successfully");
+                // console.log("User Create Successfully");
                 return res.redirect('/user/signin')
             }
         }
         console.log("User allready exist");
+        if(user.isAdmin){
+            return res.redirect('/admin/signin')
+        }
+        else{
+            return res.redirect('/user/signin')
+        }
     }
     catch(err){
 
@@ -49,7 +66,12 @@ module.exports.create=async function(req,res){
 //create session
 module.exports.createSession=function(req,res){
     // console.log("session created")
-    return res.redirect('/');
+    if(req.user.isAdmin){
+        return res.redirect('/admin/dashboard');
+    }
+    else{
+        return res.redirect('/user/dashboard');
+    }
 }
 
 //signout
