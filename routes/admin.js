@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const passport = require('passport');
 const authController = require('../controller/auth_controller');
 
 //signin page
@@ -18,5 +19,8 @@ router.get('/signup',(req,res,next)=>{
 
 //create admin
 router.post('/create',authController.create);
+
+//create session
+router.post('/create-session',passport.authenticate('local',{failureRedirect:"/admin/signin"}),authController.createSession);
 
 module.exports = router;

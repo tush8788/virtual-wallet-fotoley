@@ -45,3 +45,20 @@ module.exports.create=async function(req,res){
 
     }
 }
+
+//create session
+module.exports.createSession=function(req,res){
+    // console.log("session created")
+    return res.redirect('/');
+}
+
+//signout
+module.exports.signout=function(req,res){
+    req.logout((err)=>{
+        if(err){
+            console.log(err);
+            return;
+        }
+        return res.redirect('/');
+    })
+}
