@@ -16,4 +16,7 @@ router.get('/signup',(req,res,next)=>{
     next();
 },authController.sigupPage);
 
+//create admin
+router.post('/create',authController.create);
+
 module.exports = router;
