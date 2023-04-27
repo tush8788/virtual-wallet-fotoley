@@ -158,7 +158,7 @@ module.exports.requestingMoney = async function (req, res) {
 module.exports.reqMoneyStatus = async function (req, res) {
     try {
         // console.log(req.query);
-        await RequestMoneyDB.findOneAndUpdate({ requester: req.user.id }, { status: req.query.status });
+        await RequestMoneyDB.findOneAndUpdate({ _id:req.query.id,requester: req.user.id }, { status: req.query.status });
         if (req.query.status == "success") {
 
             req.body = {

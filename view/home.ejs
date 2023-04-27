@@ -12,7 +12,12 @@
                     <% if(locals.user){%>
                     <%}else{%>
                         <a href="/admin/signin" style="color:white" class="btn rounded-pill btn-dark btn-outline-warning">Signin</a>
-                        <a href="/admin/signup" style="color:white" class="btn rounded-pill btn-dark btn-outline-warning">SignUp</a>        
+                        <%if(true){%>
+                            <a href="/admin/signup" style="color:white" class="btn rounded-pill btn-dark btn-outline-warning">SignUp</a>
+                        <%}else{%>
+                         <p>email:admin@gmail.com</p>
+                         <p>password:admin</p>
+                        <%}%>       
                     <%}%>
                 </div>
             </div>

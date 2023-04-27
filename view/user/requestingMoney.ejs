@@ -50,7 +50,7 @@
               </tr>
             </thead>
             <tbody>
-              <%=allMoneyReq%>
+
                 <% for (let record of allMoneyReq.moneyRequest){ %>
                     <tr>
                       <th scope="row">1</th>
@@ -60,7 +60,7 @@
                       <td><%=record.status%></td>
                       <td><%=record.amount%></td>
                       <% if(record.requester._id==locals.user.id && record.status=="pending"){%>
-                        <td><a href="/money/update-money-req?status=success&receiver=<%=record.sender._id%>&amount=<%=record.amount%>" class="btn btn-primary">success</a></td>
+                        <td><a href="/money/update-money-req?status=success&id=<%=record._id%>&receiver=<%=record.sender._id%>&amount=<%=record.amount%>" class="btn btn-primary">success</a></td>
                         <td><a href="/money/update-money-req?status=reject" class="btn btn-primary">reject</a></td>
                       <%}%>
                     </tr>
