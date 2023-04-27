@@ -27,4 +27,7 @@ router.post('/create-session',passport.authenticate('local',{failureRedirect:"/u
 //user dashboard
 router.get('/dashboard',passport.checkAuthentication,passport.isUserOrNot,userController.dashboard);
 
+//view transaction
+router.get('/view-transaction',passport.checkAuthentication,userController.viewTransactions);
+
 module.exports = router;

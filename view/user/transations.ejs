@@ -1,0 +1,31 @@
+<div>
+    <h3>transations</h3>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Sender</th>
+            <th scope="col">Receiver</th>
+            <th scope="col">message</th>
+            <th scope="col">charges</th>
+            <th scope="col">Charges Amount</th>
+            <th scope="col">Amount</th>
+            
+        
+          </tr>
+        </thead>
+        <tbody>
+            <% for (let record of userdata.transactions){ %>
+                <tr>
+                  <th scope="row">1</th>
+                  <td><%=record.sender.email%></td>
+                  <td><%=record.receiver.email%></td>
+                  <td><%=record.message%></td>
+                  <td><%=record.charges%></td>
+                  <td><%=record.chargesAmount%></td>
+                  <td><%=record.amount%></td>
+                </tr>
+            <% } %>
+        </tbody>
+      </table>
+</div>

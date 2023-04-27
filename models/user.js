@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema({
     transactions:[
         {
             type:mongoose.Schema.Types.ObjectId,
-            ref:"Transaction "
+            ref:"Transaction"
         }
     ]
 });
