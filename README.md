@@ -11,13 +11,34 @@
 8.	Each User should be able to see all his transactions.
 9.	Each User should be able to see all the Money requests, action and status.
 
-Table 1 - Schedule of Charges
-Action	  | Premium User |	Non-premium User
-Sending 	|  3%	         |    5%
-Receiving	|  1%	         |    3%
+<h2>Table 1 - Schedule of Charges</h2>
 
+<table>
+<tr>
+    <th>
+    Action
+    </th>
+    <th>
+    Premium User
+    </th>
+    <th>
+    Non-premium User
+    </th>
+</tr>
+<tr>
+    <td>Sending </td>
+    <td> 3%</td>
+    <td> 5%</td>
+</tr>
+<tr>
+    <td>Receiving </td>
+    <td> 1%</td>
+    <td> 3%</td>
+</tr>
+</table>
 
-##Functionality
+## Functionality
+
 # Admin
 1. Signin and Signup 
 2. Check primium user and non-primium users
