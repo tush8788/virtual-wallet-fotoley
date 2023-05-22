@@ -39,43 +39,42 @@
 
 ## Functionality
 
-# Admin
-1. Signin and Signup 
-2. Check primium user and non-primium users
-3. view Balance 
-4. view transaction
-    
-# primium User
-1. Signin and Signup 
-2. send money 
-3. request money
-4. view transation 
+    # Admin
+        1. Signin and Signup 
+        2. Check primium user and non-primium users
+        3. view Balance 
+        4. view transaction
 
-# non-primium User
-1. Signin and Signup 
-2. send money 
-3. request money
-4. view transation 
+    # primium User
+        1. Signin and Signup 
+        2. send money 
+        3. request money
+        4. view transation 
+
+    # non-primium User
+        1. Signin and Signup 
+        2. send money 
+        3. request money
+        4. view transation 
   
-##Tools
+## Tools
 
-1. Node Js v-16.18.0
-2. Express Js
-3. Mongodb atlas
-4. Mongoose
-5. Ejs
-6. Bootstrap 5
-7. passport local (for authentication purpose)
-8. express-session (for create,incript and store cookie)
-9. connect-mongo (for storing cookie inside db)
-10. connect-flash and noty (for display notification)
+    1. Node Js v-16.18.0
+    2. Express Js
+    3. Mongodb atlas
+    4. Mongoose
+    5. Ejs
+    6. Bootstrap 5
+    7. passport local (for authentication purpose)
+    8. express-session (for create,incript and store cookie)
+    9. connect-mongo (for storing cookie inside db)
+    10. connect-flash and noty (for display notification)
 
-##Setup in Local System
-
-1. git clone "https://github.com/tush8788/Online-Bank.git"
-2. open command prompt and Type 'npm install' for download all dependencies
-3. then just "npm start"/ if npm start is not work just run this command 'node index.js'
-4. then go localhost:8000
+## Setup in Local System
+    1. git clone "https://github.com/tush8788/virtual-wallet-fotoley"
+    2. open command prompt and Type 'npm install' for download all dependencies
+    3. then just "npm start"/ if npm start is not work just run this command 'node index.js'
+    4. then go localhost:8000
 
 ## This Site is hosted on render (this site is hosted on free tier thats why its take some time to the load)
-1. Access link "https://virtual-wallet-fotoley.onrender.com/"
+    https://virtual-wallet-fotoley.onrender.com/
